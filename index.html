@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Button Selection</title>
+  <title>Quiz</title>
 </head>
 <body>
-  <h1>Button Selection</h1>
+  <h1>Quiz</h1>
   
-  <button id="button1">Button 1</button>
-  <button id="button2">Button 2</button>
-  <button id="button3">Button 3</button>
-  <button id="button4">Button 4</button>
+  <form>
+    <h3>Frage 1:</h3>
+    <p>Antwortmöglichkeiten:</p>
+    <input type="radio" name="frage1" value="1"> Antwort 1
+    <br>
+    <input type="radio" name="frage1" value="2"> Antwort 2
+    <br>
+    <input type="radio" name="frage1" value="3"> Antwort 3
+    <br>
+    <input type="radio" name="frage1" value="4"> Antwort 4
+    
+    <!-- Weitere Fragen und Antwortmöglichkeiten hier einfügen -->
+    
+    <br><br>
+    <input type="submit" value="Auswerten">
+  </form>
   
   <script>
-    // Funktion, die aufgerufen wird, wenn ein Button geklickt wird
-    function handleButtonClick(buttonId) {
-      console.log("Button " + buttonId + " wurde ausgewählt.");
-      // Hier kannst du den entsprechenden Code für die weitere Verarbeitung oder Navigation einfügen
-    }
-    
-    // Event Listener für jeden Button
-    document.getElementById("button1").addEventListener("click", function() {
-      handleButtonClick(1);
-    });
-    
-    document.getElementById("button2").addEventListener("click", function() {
-      handleButtonClick(2);
-    });
-    
-    document.getElementById("button3").addEventListener("click", function() {
-      handleButtonClick(3);
-    });
-    
-    document.getElementById("button4").addEventListener("click", function() {
-      handleButtonClick(4);
+    // Event-Listener für das Formular hinzufügen
+    document.querySelector('form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Verhindert das Absenden des Formulars
+      
+      // Summe aller Werte berechnen
+      var sum = 0;
+      var radios = document.querySelectorAll('input[type=radio]:checked'); // Alle ausgewählten Radio-Buttons abrufen
+      for (var i = 0; i < radios.length; i++) {
+        sum += parseInt(radios[i].value); // Wert des ausgewählten Radio-Buttons zur Summe hinzufügen
+      }
+      
+      // Summe ausgeben
+      alert('Summe: ' + sum);
     });
   </script>
 </body>
