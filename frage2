@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz</title>
+</head>
+<body>
+  <h1>Quiz</h1>
+  
+  <form>
+    <h3>Frage 2:</h3>
+    <p>Antwortmöglichkeiten:</p>
+    <input type="radio" name="frage1" value="1"> Antwort 1
+    <br>
+    <input type="radio" name="frage1" value="2"> Antwort 2
+    <br>
+    <input type="radio" name="frage1" value="3"> Antwort 3
+    <br>
+    <input type="radio" name="frage1" value="4"> Antwort 4
+    
+    <!-- Weitere Fragen und Antwortmöglichkeiten hier einfügen -->
+    
+    <br><br>
+    <input type="submit" value="Auswerten">
+  </form>
+  
+  <script>
+    // Event-Listener für das Formular hinzufügen
+    document.querySelector('form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Verhindert das Absenden des Formulars
+      
+      // Summe aller Werte berechnen
+      var sum = 0;
+      var radios = document.querySelectorAll('input[type=radio]:checked'); // Alle ausgewählten Radio-Buttons abrufen
+      for (var i = 0; i < radios.length; i++) {
+        sum += parseInt(radios[i].value); // Wert des ausgewählten Radio-Buttons zur Summe hinzufügen
+      }
+      
+      // Summe ausgeben
+      alert('Summe: ' + sum);
+    });
+  </script>
+</body>
+</html>
